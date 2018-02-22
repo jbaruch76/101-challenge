@@ -13,7 +13,7 @@ const getImages = images => ({ type: GET_IMAGES, images });
 
 export const fetchImages = function(keyword) {
   return function thunk(dispatch) {
-    return axios.get('https://pixabay.com/api/?key=' + api + '&q=' + keyword)
+    return axios.get('https://pixabay.com/api/?key=' + api + '&q=' + keyword + '&per_page=200')
       .then(res => res.data)
       .then(images => dispatch(getImages(images)))
       .catch(err => console.log(err));
